@@ -1,5 +1,28 @@
-.selection {
-    .node {
+$nodeWidth:  5px;
+$nodeHeight: 5px;
+$nodeBorderWidth: 1px;
 
+.selection {
+    margin: 50px;
+    width: 400px;
+    height: 250px;
+    border: 1px dotted royalblue;
+
+    .node {
+        display: block;
+        width: $nodeWidth;
+        height: $nodeHeight;
+        background: silver;
+        border: $nodeBorderWidth solid gray;
+        border-radius: 2px;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &.top.left {
+            margin-top:  -($nodeHeight + $nodeBorderWidth * 2) / 2;
+            margin-left: -($nodeWidth + $nodeBorderWidth * 2) / 2;
+        }
     }
 }

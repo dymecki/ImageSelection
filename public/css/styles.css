@@ -1,0 +1,24 @@
+.selection {
+    margin: 50px;
+    width: 400px;
+    height: 250px;
+    border: 1px dotted royalblue;
+}
+
+.selection .node {
+    display: block;
+    width: 5px;
+    height: 5px;
+    background: silver;
+    border: 1px solid gray;
+    border-radius: 2px;
+}
+
+.selection .node:hover {
+    cursor: pointer;
+}
+
+.selection .node.top.left {
+    margin-top: -3.5px;
+    margin-left: -3.5px;
+}
