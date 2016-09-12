@@ -39,9 +39,9 @@ gulp.task('scss', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    // gulp.watch('js/*.js', ['lint'/*, 'scripts'*/]);
+    gulp.watch('js/*.js', ['lint'/*, 'scripts'*/]);
     gulp.watch('scss/*.scss', ['scss']);
 });
 
 // Default Task
-gulp.task('default', ['scss', /*'scripts',*/ 'watch']);
+gulp.task('default', ['lint', 'scss', /*'scripts',*/ 'watch']);
