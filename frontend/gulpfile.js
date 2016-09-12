@@ -1,14 +1,14 @@
 var gulp   = require('gulp');
 
 var jshint = require('gulp-jshint');
-var sass   = require('gulp-sass');
+var scss   = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var notify = require('gulp-notify');
 var rename = require('gulp-rename');
 
 gulp.task('lint', function() {
-    gulp.src('public/js/*.js')
+    gulp.src('js/*.js')
         .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('jshint-stylish'))
         .pipe(jshint.reporter('fail'))
@@ -19,12 +19,12 @@ gulp.task('lint', function() {
 
 // Compile Our Sass
 gulp.task('scss', function() {
-    return gulp.src('frontend/scss/*.scss')
-        .pipe(sass({
+    return gulp.src('scss/*.scss')
+        .pipe(scss({
             indentWidth: 4,
             outputStyle: 'expanded'
         }))
-        .pipe(gulp.dest('public/css'));
+        .pipe(gulp.dest('../public/css'));
 });
 
 // Concatenate & Minify JS
@@ -39,9 +39,9 @@ gulp.task('scss', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('public/js/*.js', ['lint'/*, 'scripts'*/]);
-    gulp.watch('frontend/scss/*.scss', ['sass']);
+    // gulp.watch('js/*.js', ['lint'/*, 'scripts'*/]);
+    gulp.watch('scss/*.scss', ['scss']);
 });
 
 // Default Task
-gulp.task('default', ['lint', 'scss', /*'scripts',*/ 'watch']);
+gulp.task('default', ['scss', /*'scripts',*/ 'watch']);
