@@ -2,27 +2,59 @@ $nodeWidth:  5px;
 $nodeHeight: 5px;
 $nodeBorderWidth: 1px;
 
-.selection {
-    margin: 50px;
+.app {
+    background: silver;
     width: 400px;
     height: 250px;
+    margin: 50px;
+}
+
+.selection {
+    position: relative;
+    width: 300px;
+    height: 200px;
     border: 1px dotted royalblue;
+    cursor: all-scroll;
+
+    // TODO: Jak zrobić przezroczystość tylko jednej właściwości (tła), a nie wszystkich?
+    //background: royalblue;
+    //opacity: .15;
 
     .node {
-        display: block;
-        width: $nodeWidth;
-        height: $nodeHeight;
-        background: silver;
-        border: $nodeBorderWidth solid gray;
+        display:       block;
+        position:      absolute;
+        width:         $nodeWidth;
+        height:        $nodeHeight;
+        background:    silver;
+        border:        $nodeBorderWidth solid gray;
         border-radius: 2px;
 
         &:hover {
-            cursor: pointer;
+            cursor:     pointer;
+            background: royalblue;
         }
 
-        &.top.left {
-            margin-top:  -($nodeHeight + $nodeBorderWidth * 2) / 2;
-            margin-left: -($nodeWidth + $nodeBorderWidth * 2) / 2;
+        &.top {
+            top: -($nodeHeight + $nodeBorderWidth * 2) / 2 - 1;
+
+            &.left { left: -($nodeWidth  + $nodeBorderWidth * 2) / 2 - 1; cursor: nw-resize; }
+            &.center { left: 50%; cursor: ns-resize; }
+            &.right { right: -($nodeWidth  + $nodeBorderWidth * 2) / 2; cursor: ne-resize; }
+        }
+
+        &.middle {
+            top: 50%;
+
+            &.left { left: -($nodeWidth + $nodeBorderWidth * 2) / 2; cursor: ew-resize; }
+            &.right { right: -($nodeWidth + $nodeBorderWidth * 2) / 2; cursor: ew-resize; }
+        }
+
+        &.bottom {
+            bottom: -($nodeHeight + $nodeBorderWidth * 2) / 2;
+
+            &.left { left: -($nodeWidth  + $nodeBorderWidth * 2) / 2; cursor: sw-resize; }
+            &.center { left: 50%; cursor: ns-resize; }
+            &.right { right: -($nodeWidth  + $nodeBorderWidth * 2) / 2; cursor: se-resize; }
         }
     }
 }
