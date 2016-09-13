@@ -1,6 +1,7 @@
 /**
  * Created by michal on 12.09.16.
  */
+// TODO: Why I can't read css property (height, top) that was defined in stylesheet?
 (function() {
     'use strict';
 
@@ -21,7 +22,7 @@
             this.nodes[i].initEvents();
         }
 
-        console.log(this.nodes[0]);
+        // console.log(this.nodes[0]);
     };
 
     Selection.prototype.setup = function() {
@@ -52,6 +53,12 @@
 
     var Area = function(elem) {
         this.elem = elem;
+
+        this.width  = 300;
+        this.height = 200;
+
+        this.elem.style.height = this.height + 'px';
+        this.elem.style.width  = this.width  + 'px';
     };
 
     Area.prototype.initEvents = function() {
@@ -87,13 +94,17 @@
         return parseInt(this.elem.style.top, 10) || 0;
     };
 
+    Area.prototype.getWidth = function() {
+        return parseInt(this.elem.style.width, 10) || 0;
+    };
+
     Area.prototype.getHeight = function() {
         return parseInt(this.elem.style.height, 10) || 0;
     };
 
     Area.prototype.redrawNorth = function(vy) {
-        this.elem.style.top    = this.getY() + vy + 'px';
-        this.elem.style.height = this.getHeight() + vy + 'px';
+        this.elem.style.top    = this.getY()      + vy + 'px';
+        this.elem.style.height = this.getHeight() - vy + 'px';
     };
 
 
@@ -122,7 +133,8 @@
         // }, false);
 
         var mouseDrag = function(e) {
-            that.area.refresh(e.movementX, e.movementY);
+            // that.area.refresh(e.movementX, e.movementY);
+            that.area.redrawNorth(e.movementY);
             console.log('area refresh');
             // that.test('michal');
         };
