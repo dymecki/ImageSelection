@@ -5,12 +5,9 @@
     'use strict';
 
     var Selection = function(elem) {
-        var selections = document.getElementsByClassName('selection');
-
-        this.elem = elem;
-
+        this.elem  = elem;
         this.nodes = [];
-        this.area = new Area(selections[0]);
+        this.area  = new Area(document.getElementsByClassName('selection')[0]);
 
         this.setup();
     };
