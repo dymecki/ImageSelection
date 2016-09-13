@@ -128,7 +128,6 @@
 
 
 
-    // var Node = Object.create({});
     var Node = function (elem) {
         this.elem = elem;
     };
@@ -165,8 +164,6 @@
             }, false);
         }, false);
     };
-
-    // new Node().test();
 
     var selection = new Selection();
         // selection.initEvents();
