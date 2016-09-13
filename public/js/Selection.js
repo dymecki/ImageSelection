@@ -2,6 +2,14 @@
  * Created by michal on 12.09.16.
  */
 // TODO: Why I can't read css property (height, top) that was defined in stylesheet?
+// TODO: Prevent moving the selection outside of the image.
+// TODO: Fix mouse drag event - problem with mouseUp out of the element.
+// TODO: Add drawing selection.
+// TODO: Should we add a rotation of the selection?
+// TODO: Add config object as a parameter. (Node size, callbacks)
+// TODO: Fix: center node is not in center if the selection has small size.
+// TODO: Selection should has some square / cross in the middle of itself.
+
 (function() {
     'use strict';
 
@@ -146,9 +154,11 @@
             // console.log(e.target.className);
 
             // TODO: Refactor this switch structure to design pattern.
+            // TODO: What if there're other class names as well?
             switch (e.target.className) {
                 case 'node top left':
-                    // that.area.redraw
+                    that.area.redrawNorth(e.movementY);
+                    that.area.redrawWest(e.movementX);
                     break;
 
                 case 'node top center':
@@ -156,7 +166,8 @@
                     break;
 
                 case 'node top right':
-                    // that.area.redrawNorth(e.movementY);
+                    that.area.redrawNorth(e.movementY);
+                    that.area.redrawEast(e.movementX);
                     break;
 
                 case 'node middle left':
@@ -168,7 +179,8 @@
                     break;
 
                 case 'node bottom left':
-                    // that.area.redrawNorth(e.movementY);
+                    that.area.redrawSouth(e.movementY);
+                    that.area.redrawWest(e.movementX);
                     break;
 
                 case 'node bottom center':
@@ -176,7 +188,8 @@
                     break;
 
                 case 'node bottom right':
-                    // that.area.redrawEast(e.movementX);
+                    that.area.redrawSouth(e.movementY);
+                    that.area.redrawEast(e.movementX);
                     break;
             }
         };
