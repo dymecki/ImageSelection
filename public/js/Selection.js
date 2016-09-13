@@ -10,9 +10,9 @@
         this.area  = new Area(document.getElementsByClassName('selection')[0]);
 
         this.setup();
-        this.initNodes(); // Should it be here or inside Node object? What with Dependency Injection?
     };
 
+    // Should this method be here or inside a Node object? What with Dependency Injection?
     Selection.prototype.initNodes = function () {
         var nodesElems = document.getElementsByClassName('node');
 
@@ -26,6 +26,7 @@
 
     Selection.prototype.setup = function() {
         this.area.initEvents();
+        this.initNodes();
     };
 
     Selection.prototype.test = function (foo) {
