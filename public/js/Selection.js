@@ -2,7 +2,7 @@
  * Created by michal on 12.09.16.
  */
 // TODO: Why I can't read css property (height, top) that was defined in stylesheet?
-// TODO: Prevent moving the selection outside of the image.
+// + TODO: Prevent moving the selection outside of the image.
 // TODO: Fix mouse drag event - problem with mouseUp out of the element.
 // TODO: Add drawing selection.
 // TODO: Should we add a rotation of the selection?
@@ -10,8 +10,9 @@
 // TODO: Fix: center node is not in center if the selection has small size.
 // TODO: Selection should has some square / cross in the middle of itself.
 // + TODO: Add some effect when the selection is being dragged. (i.e: different border style)
-// TODO: On doubleclick the selection will expand to take whole available workspace.
-// TODO: Remove hardcoded nodes from HTML and make them dynamically.
+// + TODO: On doubleclick the selection will expand to take whole available workspace.
+// TODO: On doubleclick when the selection is expanded it should go back to it's previous size and position.
+// TODO: Remove hardcoded nodes from HTML and add them dynamically.
 
 (function() {
     'use strict';
@@ -134,6 +135,16 @@
 
         // Expand selection on double click event
         this.elem.addEventListener('dblclick', function() {
+            var data = {
+                'x':      that.getX(),
+                'y':      that.getY(),
+                'width':  that.getWidth(),
+                'height': that.getHeight()
+            };
+
+            // localStorage.setItem('selection', data.toString());
+            // console.log(localStorage.getItem('selection'));
+
             that.elem.style.left = 0;
             that.elem.style.top  = 0;
 
@@ -223,6 +234,12 @@
         );
     };
 
+    Area.prototype.isExpanded = function() {
+        return ! (
+            this.getWidth()  < this.workspace.getWidth()  - 2 ||
+            this.getHeight() < this.workspace.getHeight() - 2
+        );
+    };
 
 
 
