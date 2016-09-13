@@ -7,10 +7,6 @@
     var Selection = function(elem) {
         var selections = document.getElementsByClassName('selection');
 
-        // console.log(selections);
-        // console.log(nodes);
-
-
         this.elem = elem;
 
         this.nodes = [];
@@ -90,10 +86,6 @@
 
     var Area = function(elem) {
         this.elem = elem;
-    };
-
-    Area.prototype.test = function () {
-        console.log('Area test');
     };
 
     Area.prototype.initEvents = function() {
