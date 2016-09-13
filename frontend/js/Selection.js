@@ -13,6 +13,7 @@
 // + TODO: On doubleclick the selection will expand to take whole available workspace.
 // TODO: On doubleclick when the selection is expanded it should go back to it's previous size and position.
 // TODO: Remove hardcoded nodes from HTML and add them dynamically.
+// TODO: Add a label with actual x, y, width and height params for a user.
 
 (function() {
     'use strict';
