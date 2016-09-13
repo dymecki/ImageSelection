@@ -178,24 +178,43 @@
     };
 
     Area.prototype.redrawTop = function (vy) {
+        if ( ! this.isInsideWorkspace(null, vy)) {
+            return false;
+        }
+
         this.elem.style.top    = this.getY()      + vy + 'px';
         this.elem.style.height = this.getHeight() - vy + 'px';
     };
 
     Area.prototype.redrawBottom = function (vy) {
+        if ( ! this.isInsideWorkspace(null, vy)) {
+            return false;
+        }
+
         this.elem.style.height = this.getHeight() + vy + 'px';
     };
 
     Area.prototype.redrawLeft = function (vx) {
+        if ( ! this.isInsideWorkspace(vx)) {
+            return false;
+        }
+
         this.elem.style.left  = this.getX()     + vx + 'px';
         this.elem.style.width = this.getWidth() - vx + 'px';
     };
 
     Area.prototype.redrawRight = function (vx) {
+        if ( ! this.isInsideWorkspace(vx)) {
+            return false;
+        }
+
         this.elem.style.width = this.getWidth() + vx + 'px';
     };
 
     Area.prototype.isInsideWorkspace = function(vx, vy) {
+        vx = vx || 0;
+        vy = vy || 0;
+
         return ! (
             this.getX() + vx < this.workspace.getX() ||
             this.getY() + vy < this.workspace.getY() ||
