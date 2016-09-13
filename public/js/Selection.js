@@ -116,6 +116,10 @@
         this.elem.style.width = this.getWidth() - vx + 'px';
     };
 
+    Area.prototype.redrawEast = function(vx) {
+        this.elem.style.width = this.getWidth() + vx + 'px';
+    };
+
 
 
 
@@ -145,7 +149,7 @@
 
         var mouseDrag = function(e) {
             // that.area.refresh(e.movementX, e.movementY);
-            that.area.redrawWest(e.movementX);
+            that.area.redrawEast(e.movementX);
             console.log('area refresh');
             // that.test('michal');
         };
