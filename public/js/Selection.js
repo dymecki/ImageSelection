@@ -15,39 +15,6 @@
         this.setup();
     };
 
-    // Selection.prototype.initEvents = function() {
-    //     var that = this;
-    //
-    //     var mouseDrag = function(e) {
-    //         that.refresh(e.movementX, e.movementY);
-    //     };
-    //
-    //     this.elem.addEventListener('mousedown', function(e) {
-    //         if (e.target.className !== 'selection') {
-    //             return;
-    //         }
-    //
-    //         that.elem.addEventListener('mousemove', mouseDrag, false);
-    //
-    //         that.elem.addEventListener('mouseup', function (e) {
-    //             that.elem.removeEventListener('mousemove', mouseDrag, false);
-    //         }, false);
-    //     }, false);
-    // };
-
-    // Selection.prototype.refresh = function(vx, vy) {
-    //     this.elem.style.left = this.getX() + vx + 'px';
-    //     this.elem.style.top  = this.getY() + vy + 'px';
-    // };
-    //
-    // Selection.prototype.getX = function() {
-    //     return parseInt(this.elem.style.left, 10) || 0;
-    // };
-    //
-    // Selection.prototype.getY = function() {
-    //     return parseInt(this.elem.style.top, 10) || 0;
-    // };
-
     Selection.prototype.initNodes = function () {
         var nodesElems = document.getElementsByClassName('node');
 
@@ -166,6 +133,5 @@
     };
 
     var selection = new Selection();
-        // selection.initEvents();
         selection.initNodes();
 })();
