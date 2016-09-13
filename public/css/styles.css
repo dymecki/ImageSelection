@@ -15,6 +15,10 @@
     left: 0;
 }
 
+.selection:active {
+    border-color: #000;
+}
+
 .selection .node {
     display: block;
     position: absolute;
