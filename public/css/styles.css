@@ -86,3 +86,8 @@
     right: -3.5px;
     cursor: se-resize;
 }
+
+.selection-drawer {
+    border: 1px dotted blue;
+    position: absolute;
+}

@@ -72,3 +72,8 @@ $nodeHalfWidth: -($nodeWidth  + $nodeBorderWidth * 2) / 2;
         }
     }
 }
+
+.selection-drawer {
+    border:   1px dotted blue;
+    position: absolute;
+}
