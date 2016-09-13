@@ -10,6 +10,7 @@
         this.area  = new Area(document.getElementsByClassName('selection')[0]);
 
         this.setup();
+        this.initNodes(); // Should it be here or inside Node object? What with Dependency Injection?
     };
 
     Selection.prototype.initNodes = function () {
@@ -130,5 +131,4 @@
     };
 
     var selection = new Selection();
-        selection.initNodes();
 })();
