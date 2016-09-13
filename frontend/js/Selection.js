@@ -17,7 +17,7 @@
         var nodesElems = document.getElementsByClassName('node');
 
         for (var i = 0, iMax = nodesElems.length; i < iMax; i++) {
-            this.nodes[i] = new Node(nodesElems[i]);
+            this.nodes[i] = new Node(nodesElems[i], this.area);
             this.nodes[i].initEvents();
         }
 
@@ -87,6 +87,15 @@
         return parseInt(this.elem.style.top, 10) || 0;
     };
 
+    Area.prototype.getHeight = function() {
+        return parseInt(this.elem.style.height, 10) || 0;
+    };
+
+    Area.prototype.redrawNorth = function(vy) {
+        this.elem.style.top    = this.getY() + vy + 'px';
+        this.elem.style.height = this.getHeight() + vy + 'px';
+    };
+
 
 
     /* ======================================================= */
@@ -94,8 +103,9 @@
 
 
 
-    var Node = function (elem) {
+    var Node = function (elem, area) {
         this.elem = elem;
+        this.area = area;
     };
 
     Node.prototype.onDrag = function () {
@@ -105,23 +115,24 @@
     Node.prototype.initEvents = function () {
         var that = this;
 
-        this.elem.addEventListener('click', function(e) {
-            e.stopPropagation();
-            this.test('michal');
-            console.log('node click');
-        }, false);
+        // this.elem.addEventListener('click', function(e) {
+        //     e.stopPropagation();
+        //     this.test('michal');
+        //     console.log('node click');
+        // }, false);
 
         var mouseDrag = function(e) {
-            // that.refresh(e.movementX, e.movementY);
-            that.test('michal');
+            that.area.refresh(e.movementX, e.movementY);
+            console.log('area refresh');
+            // that.test('michal');
         };
 
         this.elem.addEventListener('mousedown', function(e) {
-            e.stopPropagation();
+            // e.stopPropagation();
 
-            if (e.target.className !== 'node') {
-                return;
-            }
+            // if (e.target.className !== 'node') {
+            //     return;
+            // }
 
             that.elem.addEventListener('mousemove', mouseDrag, false);
 
