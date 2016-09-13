@@ -9,7 +9,9 @@
 // TODO: Add config object as a parameter. (Node size, callbacks)
 // TODO: Fix: center node is not in center if the selection has small size.
 // TODO: Selection should has some square / cross in the middle of itself.
-// TODO: Add some effect when the selection is being dragged. (i.e: different border style)
+// + TODO: Add some effect when the selection is being dragged. (i.e: different border style)
+// TODO: On doubleclick the selection will expand to take whole available workspace.
+// TODO: Remove hardcoded nodes from HTML and make them dynamically.
 
 (function() {
     'use strict';
@@ -17,7 +19,10 @@
     var Selection = function(elem) {
         this.elem  = elem;
         this.nodes = [];
-        this.area  = new Area(document.getElementsByClassName('selection')[0]);
+        this.area  = new Area(
+            document.getElementsByClassName('selection')[0],
+            new Workspace(document.getElementsByClassName('selection-workspace')[0])
+        );
 
         this.setup();
     };
@@ -60,8 +65,44 @@
 
 
 
-    var Area = function(elem) {
+
+    var Workspace = function(elem) {
         this.elem = elem;
+
+        this.x = 0;
+        this.y = 0;
+        this.width = 400;
+        this.height = 250;
+    };
+
+    Workspace.prototype.getX = function() {
+        return this.x;
+    };
+
+    Workspace.prototype.getY = function() {
+        return this.y;
+    };
+
+    Workspace.prototype.getWidth = function() {
+        return this.width;
+    };
+
+    Workspace.prototype.getHeight = function() {
+        return this.height;
+    };
+
+
+
+
+
+    /* ======================================================= */
+
+
+
+
+    var Area = function(elem, workspace) {
+        this.elem      = elem;
+        this.workspace = workspace;
 
         this.width  = 300;
         this.height = 200;
@@ -77,6 +118,7 @@
             that.redraw(e.movementX, e.movementY);
         };
 
+        // Mouse drag event
         this.elem.addEventListener('mousedown', function(e) {
             if (e.target.className !== 'selection') {
                 return;
@@ -88,9 +130,23 @@
                 that.elem.removeEventListener('mousemove', mouseDrag, false);
             }, false);
         }, false);
+
+
+        // Expand selection on double click event
+        this.elem.addEventListener('dblclick', function() {
+            that.elem.style.left = 0;
+            that.elem.style.top  = 0;
+
+            that.setWidth(that.workspace.getWidth() - 2);
+            that.setHeight(that.workspace.getHeight() - 2);
+        }, false);
     };
 
     Area.prototype.redraw = function (vx, vy) {
+        if ( ! this.isInsideWorkspace(vx, vy)) {
+            return false;
+        }
+
         this.elem.style.left = this.getX() + vx + 'px';
         this.elem.style.top  = this.getY() + vy + 'px';
     };
@@ -111,6 +167,16 @@
         return parseInt(this.elem.style.height, 10) || 0;
     };
 
+    Area.prototype.setWidth = function(width) {
+        this.width = width;
+        this.elem.style.width = width + 'px';
+    };
+
+    Area.prototype.setHeight = function(height) {
+        this.height = height;
+        this.elem.style.height = height + 'px';
+    };
+
     Area.prototype.redrawNorth = function(vy) {
         this.elem.style.top    = this.getY()      + vy + 'px';
         this.elem.style.height = this.getHeight() - vy + 'px';
@@ -127,6 +193,15 @@
 
     Area.prototype.redrawEast = function(vx) {
         this.elem.style.width = this.getWidth() + vx + 'px';
+    };
+
+    Area.prototype.isInsideWorkspace = function(vx, vy) {
+        return ! (
+            this.getX() + vx < this.workspace.getX() ||
+            this.getY() + vy < this.workspace.getY() ||
+            this.getX() + vx + this.getWidth()  > this.workspace.getWidth() ||
+            this.getY() + vy + this.getHeight() > this.workspace.getHeight()
+        );
     };
 
 
