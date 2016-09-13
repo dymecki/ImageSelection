@@ -177,21 +177,21 @@
         this.elem.style.height = height + 'px';
     };
 
-    Area.prototype.redrawNorth = function(vy) {
+    Area.prototype.redrawTop = function (vy) {
         this.elem.style.top    = this.getY()      + vy + 'px';
         this.elem.style.height = this.getHeight() - vy + 'px';
     };
 
-    Area.prototype.redrawSouth = function(vy) {
+    Area.prototype.redrawBottom = function (vy) {
         this.elem.style.height = this.getHeight() + vy + 'px';
     };
 
-    Area.prototype.redrawWest = function(vx) {
+    Area.prototype.redrawLeft = function (vx) {
         this.elem.style.left  = this.getX()     + vx + 'px';
         this.elem.style.width = this.getWidth() - vx + 'px';
     };
 
-    Area.prototype.redrawEast = function(vx) {
+    Area.prototype.redrawRight = function (vx) {
         this.elem.style.width = this.getWidth() + vx + 'px';
     };
 
@@ -233,39 +233,39 @@
             // TODO: What if there're other class names as well?
             switch (e.target.className) {
                 case 'node top left':
-                    that.area.redrawNorth(e.movementY);
-                    that.area.redrawWest(e.movementX);
+                    that.area.redrawTop(e.movementY);
+                    that.area.redrawLeft(e.movementX);
                     break;
 
                 case 'node top center':
-                    that.area.redrawNorth(e.movementY);
+                    that.area.redrawTop(e.movementY);
                     break;
 
                 case 'node top right':
-                    that.area.redrawNorth(e.movementY);
-                    that.area.redrawEast(e.movementX);
+                    that.area.redrawTop(e.movementY);
+                    that.area.redrawRight(e.movementX);
                     break;
 
                 case 'node middle left':
-                    that.area.redrawWest(e.movementX);
+                    that.area.redrawLeft(e.movementX);
                     break;
 
                 case 'node middle right':
-                    that.area.redrawEast(e.movementX);
+                    that.area.redrawRight(e.movementX);
                     break;
 
                 case 'node bottom left':
-                    that.area.redrawSouth(e.movementY);
-                    that.area.redrawWest(e.movementX);
+                    that.area.redrawBottom(e.movementY);
+                    that.area.redrawLeft(e.movementX);
                     break;
 
                 case 'node bottom center':
-                    that.area.redrawSouth(e.movementY);
+                    that.area.redrawBottom(e.movementY);
                     break;
 
                 case 'node bottom right':
-                    that.area.redrawSouth(e.movementY);
-                    that.area.redrawEast(e.movementX);
+                    that.area.redrawBottom(e.movementY);
+                    that.area.redrawRight(e.movementX);
                     break;
             }
         };
