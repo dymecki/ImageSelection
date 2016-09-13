@@ -36,11 +36,11 @@
 }
 
 .selection .node.top {
-    top: -4.5px;
+    top: -3.5px;
 }
 
 .selection .node.top.left {
-    left: -4.5px;
+    left: -3.5px;
     cursor: nw-resize;
 }
 
@@ -59,21 +59,21 @@
 }
 
 .selection .node.middle.left {
-    left: -4.5px;
+    left: -3.5px;
     cursor: ew-resize;
 }
 
 .selection .node.middle.right {
-    right: -4.5px;
+    right: -3.5px;
     cursor: ew-resize;
 }
 
 .selection .node.bottom {
-    bottom: -4.5px;
+    bottom: -3.5px;
 }
 
 .selection .node.bottom.left {
-    left: -4.5px;
+    left: -3.5px;
     cursor: sw-resize;
 }
 
@@ -83,6 +83,6 @@
 }
 
 .selection .node.bottom.right {
-    right: -4.5px;
+    right: -3.5px;
     cursor: se-resize;
 }

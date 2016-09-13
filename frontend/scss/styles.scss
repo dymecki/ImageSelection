@@ -2,6 +2,7 @@ $nodeWidth:  5px;
 $nodeHeight: 5px;
 $nodeBorderWidth: 1px;
 $nodeBgColorHover: royalblue;
+$nodeHalfWidth: -($nodeWidth  + $nodeBorderWidth * 2) / 2;
 
 .selection-workspace {
     background: silver;
@@ -48,26 +49,26 @@ $nodeBgColorHover: royalblue;
         }
 
         &.top {
-            top: -($nodeHeight + $nodeBorderWidth * 2) / 2 - 1;
+            top: $nodeHalfWidth;
 
-            &.left { left: -($nodeWidth  + $nodeBorderWidth * 2) / 2 - 1; cursor: nw-resize; }
+            &.left { left: $nodeHalfWidth; cursor: nw-resize; }
             &.center { left: 50%; cursor: ns-resize; }
-            &.right { right: -($nodeWidth  + $nodeBorderWidth * 2) / 2; cursor: ne-resize; }
+            &.right { right: $nodeHalfWidth; cursor: ne-resize; }
         }
 
         &.middle {
             top: 50%;
 
-            &.left { left: -($nodeWidth + $nodeBorderWidth * 2) / 2 - 1; cursor: ew-resize; }
-            &.right { right: -($nodeWidth + $nodeBorderWidth * 2) / 2 - 1; cursor: ew-resize; }
+            &.left { left: $nodeHalfWidth; cursor: ew-resize; }
+            &.right { right: $nodeHalfWidth; cursor: ew-resize; }
         }
 
         &.bottom {
-            bottom: -($nodeHeight + $nodeBorderWidth * 2) / 2 - 1;
+            bottom: $nodeHalfWidth;
 
-            &.left { left: -($nodeWidth  + $nodeBorderWidth * 2) / 2 - 1; cursor: sw-resize; }
+            &.left { left: $nodeHalfWidth; cursor: sw-resize; }
             &.center { left: 50%; cursor: ns-resize; }
-            &.right { right: -($nodeWidth  + $nodeBorderWidth * 2) / 2 - 1; cursor: se-resize; }
+            &.right { right: $nodeHalfWidth; cursor: se-resize; }
         }
     }
 }
