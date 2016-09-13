@@ -107,6 +107,11 @@
         this.elem.style.height = this.getHeight() - vy + 'px';
     };
 
+    Area.prototype.redrawSouth = function(vy) {
+        this.elem.style.height = this.getHeight() + vy + 'px';
+    };
+
+
 
 
     /* ======================================================= */
@@ -134,7 +139,7 @@
 
         var mouseDrag = function(e) {
             // that.area.refresh(e.movementX, e.movementY);
-            that.area.redrawNorth(e.movementY);
+            that.area.redrawSouth(e.movementY);
             console.log('area refresh');
             // that.test('michal');
         };
