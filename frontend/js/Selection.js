@@ -75,6 +75,8 @@
         this.y = 0;
         this.width = 400;
         this.height = 250;
+
+        this.initEvents();
     };
 
     Workspace.prototype.getX = function() {
@@ -93,6 +95,40 @@
         return this.height;
     };
 
+    Workspace.prototype.initEvents = function() {
+        var that = this;
+
+        this.elem.addEventListener('mousedown', function(e) {
+            var drawer;
+
+            drawer = document.createElement('div');
+            that.elem.appendChild(drawer);
+
+            drawer.setAttribute('class', 'selection-drawer');
+            drawer.style.left   = e.offsetX + 'px';
+            drawer.style.top    = e.offsetY + 'px';
+            drawer.style.width  = 0;
+            drawer.style.height = 0;
+
+            var mouseMove = function(e) {
+                drawer.style.width  = parseInt(drawer.style.width, 10)  + e.movementX + 'px';
+                drawer.style.height = parseInt(drawer.style.height, 10) + e.movementY + 'px';
+            };
+
+            that.elem.addEventListener('mousemove', mouseMove, false);
+
+            that.elem.addEventListener('mouseup', function(e) {
+                that.elem.removeEventListener('mousemove', mouseMove, false);
+                new Selection({
+                    'x': e.offsetX,
+                    'y': e.offsetY,
+                    'width':  parseInt(drawer.style.width),
+                    'height': parseInt(drawer.style.height)
+                });
+            }, false);
+        }, false);
+    };
+
 
 
 
@@ -109,8 +145,8 @@
         this.width  = 300;
         this.height = 200;
 
-        this.elem.style.height = this.height + 'px';
-        this.elem.style.width  = this.width  + 'px';
+        // this.elem.style.height = this.height + 'px';
+        // this.elem.style.width  = this.width  + 'px';
     };
 
     Area.prototype.initEvents = function() {
@@ -121,37 +157,37 @@
         };
 
         // Mouse drag event
-        this.elem.addEventListener('mousedown', function(e) {
-            if (e.target.className !== 'selection') {
-                return;
-            }
-
-            that.elem.addEventListener('mousemove', mouseDrag, false);
-
-            that.elem.addEventListener('mouseup', function (e) {
-                that.elem.removeEventListener('mousemove', mouseDrag, false);
-            }, false);
-        }, false);
+        // this.elem.addEventListener('mousedown', function(e) {
+        //     if (e.target.className !== 'selection') {
+        //         return;
+        //     }
+        //
+        //     that.elem.addEventListener('mousemove', mouseDrag, false);
+        //
+        //     that.elem.addEventListener('mouseup', function (e) {
+        //         that.elem.removeEventListener('mousemove', mouseDrag, false);
+        //     }, false);
+        // }, false);
 
 
         // Expand selection on double click event
-        this.elem.addEventListener('dblclick', function() {
-            var data = {
-                'x':      that.getX(),
-                'y':      that.getY(),
-                'width':  that.getWidth(),
-                'height': that.getHeight()
-            };
-
-            // localStorage.setItem('selection', data.toString());
-            // console.log(localStorage.getItem('selection'));
-
-            that.elem.style.left = 0;
-            that.elem.style.top  = 0;
-
-            that.setWidth(that.workspace.getWidth() - 2);
-            that.setHeight(that.workspace.getHeight() - 2);
-        }, false);
+        // this.elem.addEventListener('dblclick', function() {
+        //     var data = {
+        //         'x':      that.getX(),
+        //         'y':      that.getY(),
+        //         'width':  that.getWidth(),
+        //         'height': that.getHeight()
+        //     };
+        //
+        //     // localStorage.setItem('selection', data.toString());
+        //     // console.log(localStorage.getItem('selection'));
+        //
+        //     that.elem.style.left = 0;
+        //     that.elem.style.top  = 0;
+        //
+        //     that.setWidth(that.workspace.getWidth() - 2);
+        //     that.setHeight(that.workspace.getHeight() - 2);
+        // }, false);
     };
 
     Area.prototype.redraw = function (vx, vy) {
