@@ -55,21 +55,21 @@
 }
 
 .selection .node.middle.left {
-    left: -3.5px;
+    left: -4.5px;
     cursor: ew-resize;
 }
 
 .selection .node.middle.right {
-    right: -3.5px;
+    right: -4.5px;
     cursor: ew-resize;
 }
 
 .selection .node.bottom {
-    bottom: -3.5px;
+    bottom: -4.5px;
 }
 
 .selection .node.bottom.left {
-    left: -3.5px;
+    left: -4.5px;
     cursor: sw-resize;
 }
 
@@ -79,6 +79,6 @@
 }
 
 .selection .node.bottom.right {
-    right: -3.5px;
+    right: -4.5px;
     cursor: se-resize;
 }

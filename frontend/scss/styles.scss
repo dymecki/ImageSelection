@@ -23,7 +23,7 @@ $nodeBgColorHover: royalblue;
     //width: 300px;
     //height: 200px;
 
-    // TODO: Jak zrobić przezroczystość tylko jednej właściwości (tła), a nie wszystkich?
+    // TODO: How to set opacity for only one property (background), not all?
     //background: royalblue;
     //opacity: .15;
 
@@ -53,16 +53,16 @@ $nodeBgColorHover: royalblue;
         &.middle {
             top: 50%;
 
-            &.left { left: -($nodeWidth + $nodeBorderWidth * 2) / 2; cursor: ew-resize; }
-            &.right { right: -($nodeWidth + $nodeBorderWidth * 2) / 2; cursor: ew-resize; }
+            &.left { left: -($nodeWidth + $nodeBorderWidth * 2) / 2 - 1; cursor: ew-resize; }
+            &.right { right: -($nodeWidth + $nodeBorderWidth * 2) / 2 - 1; cursor: ew-resize; }
         }
 
         &.bottom {
-            bottom: -($nodeHeight + $nodeBorderWidth * 2) / 2;
+            bottom: -($nodeHeight + $nodeBorderWidth * 2) / 2 - 1;
 
-            &.left { left: -($nodeWidth  + $nodeBorderWidth * 2) / 2; cursor: sw-resize; }
+            &.left { left: -($nodeWidth  + $nodeBorderWidth * 2) / 2 - 1; cursor: sw-resize; }
             &.center { left: 50%; cursor: ns-resize; }
-            &.right { right: -($nodeWidth  + $nodeBorderWidth * 2) / 2; cursor: se-resize; }
+            &.right { right: -($nodeWidth  + $nodeBorderWidth * 2) / 2 - 1; cursor: se-resize; }
         }
     }
 }
