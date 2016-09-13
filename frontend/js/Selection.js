@@ -9,6 +9,7 @@
 // TODO: Add config object as a parameter. (Node size, callbacks)
 // TODO: Fix: center node is not in center if the selection has small size.
 // TODO: Selection should has some square / cross in the middle of itself.
+// TODO: Add some effect when the selection is being dragged. (i.e: different border style)
 
 (function() {
     'use strict';
