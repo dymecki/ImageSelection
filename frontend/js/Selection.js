@@ -65,7 +65,7 @@
         var that = this;
 
         var mouseDrag = function(e) {
-            that.refresh(e.movementX, e.movementY);
+            that.redraw(e.movementX, e.movementY);
         };
 
         this.elem.addEventListener('mousedown', function(e) {
@@ -81,7 +81,7 @@
         }, false);
     };
 
-    Area.prototype.refresh = function(vx, vy) {
+    Area.prototype.redraw = function (vx, vy) {
         this.elem.style.left = this.getX() + vx + 'px';
         this.elem.style.top  = this.getY() + vy + 'px';
     };
