@@ -1,6 +1,7 @@
 $nodeWidth:  5px;
 $nodeHeight: 5px;
 $nodeBorderWidth: 1px;
+$nodeBgColorHover: royalblue;
 
 .app {
     background: silver;
@@ -36,7 +37,8 @@ $nodeBorderWidth: 1px;
 
         &:hover {
             cursor:     pointer;
-            background: royalblue;
+            background: $nodeBgColorHover;
+            border-color: $nodeBgColorHover;
         }
 
         &.top {

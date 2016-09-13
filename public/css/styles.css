@@ -29,6 +29,7 @@
 .selection .node:hover {
     cursor: pointer;
     background: royalblue;
+    border-color: royalblue;
 }
 
 .selection .node.top {
