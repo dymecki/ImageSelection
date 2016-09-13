@@ -141,17 +141,44 @@
     Node.prototype.initEvents = function () {
         var that = this;
 
-        // this.elem.addEventListener('click', function(e) {
-        //     e.stopPropagation();
-        //     this.test('michal');
-        //     console.log('node click');
-        // }, false);
-
         var mouseDrag = function(e) {
-            // that.area.refresh(e.movementX, e.movementY);
-            that.area.redrawEast(e.movementX);
-            console.log('area refresh');
             // that.test('michal');
+            // console.log(e.target.className);
+
+            // TODO: Refactor this switch structure to design pattern.
+            switch (e.target.className) {
+                case 'node top left':
+                    // that.area.redraw
+                    break;
+
+                case 'node top center':
+                    that.area.redrawNorth(e.movementY);
+                    break;
+
+                case 'node top right':
+                    // that.area.redrawNorth(e.movementY);
+                    break;
+
+                case 'node middle left':
+                    that.area.redrawWest(e.movementX);
+                    break;
+
+                case 'node middle right':
+                    that.area.redrawEast(e.movementX);
+                    break;
+
+                case 'node bottom left':
+                    // that.area.redrawNorth(e.movementY);
+                    break;
+
+                case 'node bottom center':
+                    that.area.redrawSouth(e.movementY);
+                    break;
+
+                case 'node bottom right':
+                    // that.area.redrawEast(e.movementX);
+                    break;
+            }
         };
 
         this.elem.addEventListener('mousedown', function(e) {
@@ -186,6 +213,8 @@
 
         return false;
     };
+
+    var util = new Util();
 
 
 
