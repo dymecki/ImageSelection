@@ -9,7 +9,7 @@
 .selection {
     position: absolute;
     display: block;
-    border: 1px dotted royalblue;
+    border: 1px solid #404040;
     cursor: all-scroll;
     top: 0;
     left: 0;
@@ -88,6 +88,6 @@
 }
 
 .selection-drawer {
-    border: 1px dotted blue;
+    border: 1px dotted royalblue;
     position: absolute;
 }
