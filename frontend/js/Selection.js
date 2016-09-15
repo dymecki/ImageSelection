@@ -76,7 +76,7 @@
         this.width = 400;
         this.height = 250;
 
-        this.initEvents();
+        // this.initEvents();
     };
 
     Workspace.prototype.getX = function() {
@@ -95,7 +95,7 @@
         return this.height;
     };
 
-    Workspace.prototype.initEvents = function() {
+    /*Workspace.prototype.initEvents = function() {
         var that = this;
 
         this.elem.addEventListener('mousedown', function(e) {
@@ -127,7 +127,7 @@
                 });
             }, false);
         }, false);
-    };
+    };*/
 
 
 
@@ -145,8 +145,8 @@
         this.width  = 300;
         this.height = 200;
 
-        // this.elem.style.height = this.height + 'px';
-        // this.elem.style.width  = this.width  + 'px';
+        this.elem.style.height = this.height + 'px';
+        this.elem.style.width  = this.width  + 'px';
     };
 
     Area.prototype.initEvents = function() {
@@ -157,37 +157,37 @@
         };
 
         // Mouse drag event
-        // this.elem.addEventListener('mousedown', function(e) {
-        //     if (e.target.className !== 'selection') {
-        //         return;
-        //     }
-        //
-        //     that.elem.addEventListener('mousemove', mouseDrag, false);
-        //
-        //     that.elem.addEventListener('mouseup', function (e) {
-        //         that.elem.removeEventListener('mousemove', mouseDrag, false);
-        //     }, false);
-        // }, false);
+        this.elem.addEventListener('mousedown', function(e) {
+            if (e.target.className !== 'selection') {
+                return;
+            }
+
+            that.elem.addEventListener('mousemove', mouseDrag, false);
+
+            that.elem.addEventListener('mouseup', function (e) {
+                that.elem.removeEventListener('mousemove', mouseDrag, false);
+            }, false);
+        }, false);
 
 
         // Expand selection on double click event
-        // this.elem.addEventListener('dblclick', function() {
-        //     var data = {
-        //         'x':      that.getX(),
-        //         'y':      that.getY(),
-        //         'width':  that.getWidth(),
-        //         'height': that.getHeight()
-        //     };
-        //
-        //     // localStorage.setItem('selection', data.toString());
-        //     // console.log(localStorage.getItem('selection'));
-        //
-        //     that.elem.style.left = 0;
-        //     that.elem.style.top  = 0;
-        //
-        //     that.setWidth(that.workspace.getWidth() - 2);
-        //     that.setHeight(that.workspace.getHeight() - 2);
-        // }, false);
+        this.elem.addEventListener('dblclick', function() {
+            var data = {
+                'x':      that.getX(),
+                'y':      that.getY(),
+                'width':  that.getWidth(),
+                'height': that.getHeight()
+            };
+
+            // localStorage.setItem('selection', data.toString());
+            // console.log(localStorage.getItem('selection'));
+
+            that.elem.style.left = 0;
+            that.elem.style.top  = 0;
+
+            that.setWidth(that.workspace.getWidth() - 2);
+            that.setHeight(that.workspace.getHeight() - 2);
+        }, false);
     };
 
     Area.prototype.redraw = function (vx, vy) {
