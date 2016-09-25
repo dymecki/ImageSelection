@@ -14,34 +14,21 @@
 
 'use strict';
 
-var Selection = function(elem) {
-    this.elem  = elem;
-    this.nodes = [];
-    this.area  = new Area(
-        document.getElementsByClassName('selection')[0],
-        new Workspace(document.getElementsByClassName('selection-workspace')[0])
-    );
+requirejs.config({
+    //By default load any module IDs from js/lib
+    baseUrl: 'js/lib',
 
-    this.setup();
-};
-
-// Should this method be here or inside a Node object? What with Dependency Injection?
-Selection.prototype.initNodes = function() {
-    var nodesElems = document.getElementsByClassName('node');
-
-    for (var i = 0, iMax = nodesElems.length; i < iMax; i++) {
-        this.nodes[i] = new Node(nodesElems[i], this.area);
-        this.nodes[i].initEvents();
+    //except, if the module ID starts with "app",
+    //load it from the js/app directory. paths
+    //config is relative to the baseUrl, and
+    //never includes a ".js" extension since
+    //the paths config could be for a directory.
+    paths: {
+        app: '../app'
     }
+});
 
-    // console.log(this.nodes[0]);
-};
-
-Selection.prototype.setup = function() {
-    this.area.initEvents();
-    this.initNodes();
-};
-
-Selection.prototype.test = function(foo) {
-    console.log(foo);
-};
+// Start the main app logic.
+requirejs([], function() {
+    console.log('Test require.js');
+});
