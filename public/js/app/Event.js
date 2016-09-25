@@ -1,12 +1,1 @@
-'use strict';
-
-define('Event', function() {
-    var Event = function() {
-    };
-
-    Event.prototype.onMouseDrag = function() {
-
-    };
-
-    return Event;
-});
+"use strict";define("Event",function(){var n=function(){};return n.prototype.onMouseDrag=function(){},n});

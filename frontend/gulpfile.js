@@ -37,13 +37,13 @@ gulp.task('scss', function() {
 // Concatenate & Minify JS
 gulp.task('scripts', function() {
     return gulp.src('js/**/*.js')
-        // .pipe(concat('Selection.js'))
-        .pipe(gulp.dest('../public/js/'));
-        // .pipe(rename('Selection.js'));
+        // .pipe(concat('App.min.js'))
 
-        // .pipe(rename('.min.js'))
-        // .pipe(uglify())
-        // .pipe(gulp.dest('dist/js'));
+        // .pipe(rename(function(path) {
+        //     path.extname = '.min.js';
+        // }))
+        .pipe(uglify())
+        .pipe(gulp.dest('../public/js/'));
 });
 
 // Watch Files For Changes
