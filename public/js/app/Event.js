@@ -1,0 +1,1 @@
+"use strict";define("Event",function(){var n=function(){};return n.prototype.onMouseDrag=function(){},n});

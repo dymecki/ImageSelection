@@ -1,0 +1,1 @@
+"use strict";requirejs.config({baseUrl:"js/app",paths:{app:"../app"}}),requirejs(["Selection"],function(e){new e});

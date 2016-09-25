@@ -2,21 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Title</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>ImageSelection</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!--<link rel="stylesheet" href="css/lib/normalize.css">-->
+    <!--<link rel="stylesheet" href="css/lib/main.css">-->
+    <!--<link rel="stylesheet" href="css/styles.css">-->
 
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.min.css">
 </head>
 <body>
-    <div class="app">
-        <img src="img/passed.png" alt="" title="" class="selection" />
+    <div class="selection-workspace">
+
+        <div class="selection">
+            <div class="node top left"></div>
+            <div class="node top center"></div>
+            <div class="node top right"></div>
+
+            <div class="node middle left"></div>
+            <div class="node middle right"></div>
+
+            <div class="node bottom left"></div>
+            <div class="node bottom center"></div>
+            <div class="node bottom right"></div>
+        </div>
+
+        <!--<img src="img/passed.png" alt="" title="" class="selection" />-->
     </div>
 
-    <script src="js/Selection.js"></script>
+    <script data-main="js/app.js" src="js/lib/require-2.3.2.min.js"></script>
 </body>
 </html>
