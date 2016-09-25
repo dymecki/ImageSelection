@@ -16,7 +16,7 @@
 
 requirejs.config({
     //By default load any module IDs from js/lib
-    baseUrl: 'js/lib',
+    baseUrl: 'js/app',
 
     //except, if the module ID starts with "app",
     //load it from the js/app directory. paths
@@ -29,6 +29,6 @@ requirejs.config({
 });
 
 // Start the main app logic.
-requirejs([], function() {
-    console.log('Test require.js');
+requirejs(['Selection'], function(Selection) {
+    new Selection();
 });
