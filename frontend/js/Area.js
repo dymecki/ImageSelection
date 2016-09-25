@@ -52,7 +52,7 @@ Area.prototype.initEvents = function() {
     }, false);
 };
 
-Area.prototype.redraw = function (vx, vy) {
+Area.prototype.redraw = function(vx, vy) {
     if ( ! this.isInsideWorkspace(vx, vy)) {
         return false;
     }
@@ -87,7 +87,7 @@ Area.prototype.setHeight = function(height) {
     this.elem.style.height = height + 'px';
 };
 
-Area.prototype.redrawTop = function (vy) {
+Area.prototype.redrawTop = function(vy) {
     if ( ! this.isInsideWorkspace(null, vy)) {
         return false;
     }
@@ -96,7 +96,7 @@ Area.prototype.redrawTop = function (vy) {
     this.elem.style.height = this.getHeight() - vy + 'px';
 };
 
-Area.prototype.redrawBottom = function (vy) {
+Area.prototype.redrawBottom = function(vy) {
     if ( ! this.isInsideWorkspace(null, vy)) {
         return false;
     }
@@ -104,7 +104,7 @@ Area.prototype.redrawBottom = function (vy) {
     this.elem.style.height = this.getHeight() + vy + 'px';
 };
 
-Area.prototype.redrawLeft = function (vx) {
+Area.prototype.redrawLeft = function(vx) {
     if ( ! this.isInsideWorkspace(vx)) {
         return false;
     }
@@ -113,7 +113,7 @@ Area.prototype.redrawLeft = function (vx) {
     this.elem.style.width = this.getWidth() - vx + 'px';
 };
 
-Area.prototype.redrawRight = function (vx) {
+Area.prototype.redrawRight = function(vx) {
     if ( ! this.isInsideWorkspace(vx)) {
         return false;
     }

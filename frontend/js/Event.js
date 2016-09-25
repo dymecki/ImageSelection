@@ -2,6 +2,6 @@
 
 var Event = function() {};
 
-Event.prototype.onMouseDrag = function () {
+Event.prototype.onMouseDrag = function() {
 
 };

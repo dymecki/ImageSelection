@@ -8,7 +8,7 @@ var Workspace = function(elem) {
     this.width = 400;
     this.height = 250;
 
-    this.initEvents();
+    // this.initEvents();
 };
 
 Workspace.prototype.getX = function() {
@@ -27,7 +27,7 @@ Workspace.prototype.getHeight = function() {
     return this.height;
 };
 
-Workspace.prototype.initEvents = function () {
+Workspace.prototype.initEvents = function() {
     var that = this;
 
     this.elem.addEventListener('mousedown', function(e) {

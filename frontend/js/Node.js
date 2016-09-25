@@ -5,7 +5,7 @@ var Node = function (elem, area) {
     this.area = area;
 };
 
-Node.prototype.initEvents = function () {
+Node.prototype.initEvents = function() {
     var that = this;
 
     var mouseDrag = function(e) {
@@ -59,7 +59,7 @@ Node.prototype.initEvents = function () {
 
         that.elem.addEventListener('mousemove', mouseDrag, false);
 
-        that.elem.addEventListener('mouseup', function (e) {
+        that.elem.addEventListener('mouseup', function(e) {
             that.elem.removeEventListener('mousemove', mouseDrag, false);
         }, false);
     }, false);

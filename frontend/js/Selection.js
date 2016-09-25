@@ -26,7 +26,7 @@ var Selection = function(elem) {
 };
 
 // Should this method be here or inside a Node object? What with Dependency Injection?
-Selection.prototype.initNodes = function () {
+Selection.prototype.initNodes = function() {
     var nodesElems = document.getElementsByClassName('node');
 
     for (var i = 0, iMax = nodesElems.length; i < iMax; i++) {
@@ -42,6 +42,6 @@ Selection.prototype.setup = function() {
     this.initNodes();
 };
 
-Selection.prototype.test = function (foo) {
+Selection.prototype.test = function(foo) {
     console.log(foo);
 };
