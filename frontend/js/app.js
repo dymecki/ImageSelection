@@ -12,6 +12,10 @@
 // TODO: Remove hardcoded nodes from HTML and add them dynamically.
 // TODO: Add a label with actual x, y, width and height params for a user.
 
+/**
+ * Version: 0.3.0
+ */
+
 'use strict';
 
 requirejs.config({
