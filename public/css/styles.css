@@ -1,16 +1,22 @@
-.app {
+.selection-workspace {
     background: silver;
     width: 400px;
     height: 250px;
     margin: 50px;
+    position: relative;
 }
 
 .selection {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    border: 1px dotted royalblue;
+    position: absolute;
+    display: block;
+    border: 1px solid #404040;
     cursor: all-scroll;
+    top: 0;
+    left: 0;
+}
+
+.selection:active {
+    border-color: #000;
 }
 
 .selection .node {
@@ -26,14 +32,15 @@
 .selection .node:hover {
     cursor: pointer;
     background: royalblue;
+    border-color: royalblue;
 }
 
 .selection .node.top {
-    top: -4.5px;
+    top: -3.5px;
 }
 
 .selection .node.top.left {
-    left: -4.5px;
+    left: -3.5px;
     cursor: nw-resize;
 }
 
@@ -78,4 +85,9 @@
 .selection .node.bottom.right {
     right: -3.5px;
     cursor: se-resize;
+}
+
+.selection-drawer {
+    border: 1px dotted royalblue;
+    position: absolute;
 }
